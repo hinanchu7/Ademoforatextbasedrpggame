@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'IPix'; /* 可以自定义字体名称 */
+    src: url('fonts/IPix.ttf') format('truetype'); /* 路径和格式根据你的字体文件类型进行调整 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'IPix', sans-serif; /* 使用你定义的字体 */
+    border: 1px black;
+}
+
+/* #gameContent {
+    display: none;
+}
+*/
+.container {
+    display: flex;
+    height: 500px;
+}
+
+#log {
+    flex: 1 0 20%;
+    background-color: rgb(227, 245, 252);
+    margin-right: 10px;
+}
+
+#action {
+    flex: 1 0 40%;
+    background-color: rgb(227, 245, 252);
+    margin-right: 10px;
+}
+
+.div-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 30%; /* 调整第三个和第四个 div 容器的宽度比例 */
+    height: 500px;
+}
+
+#stats {
+    flex: 1 1 auto; /* 让 div3 占满剩余的高度 */
+    background-color: rgb(227, 245, 252);
+    margin-bottom: 10px; /* 可选：设置底部间距 */
+}
+
+#inventory {
+    flex: 1 1 auto; /* 让 div4 占满剩余的高度 */
+    background-color: rgb(227, 245, 252);
+    height: 60%;
+}
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试版</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/inventory.js"></script>
+    <script type="text/javascript" src="scripts/item.js"></script>
+</head>
+<body onload="updateGameTime()">
+
+    <!--游戏界面-->
+    <div id="gameContent" class="container">
+        <div id="log">
+            <div class="title">
+                <div id="gameTime"></div>
+            </div>
+        </div>
+        <div id="action">
+            <div id="tabs">
+                <button onclick="changeTab('home')">我的房间</button>
+                <button onclick="changeTab('hallway')">走廊</button>
+            </div>
+            <div id="tabContent">
+                <div id="homeTab" class="tab">
+                    <button onclick="performAction('eat')">吃饭</button>
+                    <button onclick="performAction('rest')">休息</button>
+                    <button onclick="performAction('craft')">制作装备</button>
+                </div>
+                <div id="hallwayTab" class="tab" style="display:none;">
+                    <button onclick="performAction('eat')">开901的门</button>
+                    <button onclick="performAction('rest')">开902的门</button>
+                    <button onclick="performAction('craft')">开903的门</button>
+                </div>
+            </div>
+        </div>
+        <div class="div-container">
+            <div id="stats">
+                <div class="title">
+                    <div id="health"></div>
+                    <div id="sanity"></div>
+                    <div id="hunger"></div>
+                    <div id="thirst"></div>
+                    <div id="fatigue"></div>
+                </div>
+                <div class="title">
+                    <div id="attack"></div>
+                    <div id="defense"></div>
+                    <div id="weapon"></div>
+                    <div id="armor"></div>
+                    <div id="accessory"></div>
+                    <div id="playerStorage"></div>
+                </div>
+            </div>
+            <div id="inventory">
+                <div class="title">
+                    库存
+                </div>
+                <div id="inventoryContent"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
