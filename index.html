@@ -8,59 +8,78 @@
     <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript" src="scripts/inventory.js"></script>
     <script type="text/javascript" src="scripts/item.js"></script>
+    <script type="text/javascript" src="scripts/combat.js"></script>
 </head>
-<body onload="updateGameTime()">
-
-    <!--游戏界面-->
-    <div id="gameContent" class="container">
+<body onload="updatePlayerStats()">
+    <div id="game-container">
         <div id="log">
-            <div class="title">
-                <div id="gameTime"></div>
+            <div id="gameTime" class="title2">第1天，08:30</div>
+            <div>游戏日志和文字描述将显示在这里</div>
+        </div>
+        <div id="actions">
+            <div id="actions-container1">
+                <button class="button" onclick="performAction('eat')">吃饭</button>
+                <button class="button" onclick="performAction('rest')">休息</button>
+                <button class="button" onclick="performAction('explore')">探险</button>
+                <button class="button" onclick="performAction('explore')">探险</button>
+            </div>
+            <div id="actions-container2">
+                <button class="button" onclick="performAction('eat')">吃饭</button>
+                <button class="button" onclick="performAction('rest')">休息</button>
+                <button class="button" onclick="performAction('explore')">探险</button>
+                <button class="button" onclick="performAction('explore')">探险</button>
+            </div>
+
+        </div>
+        <div id="inventory">
+            <div class="title">背包</div>
+            <div id="inventoryContent"></div>
+        </div>
+        <div id="player-stats-container">
+            <div class="title">状态</div>
+            <div id="player-stats">
+                <div class="player-stats">
+                    <div>健康</div>
+                    <div class="stat-bar-container" id="healthBar">
+                        <div class="stat-bar" id="health"></div>
+                    </div>
+                </div>
+                <div class="player-stats">
+                    <div>理智</div>
+                    <div class="stat-bar-container" id="sanityBar">
+                        <div class="stat-bar" id="sanity"></div>
+                    </div>
+                </div>
+                <div class="player-stats">
+                    <div>饥饿</div>
+                    <div class="stat-bar-container" id="hungerBar">
+                        <div class="stat-bar" id="hunger"></div>
+                    </div>
+                </div>
+                <div class="player-stats">
+                    <div>口渴</div>
+                    <div class="stat-bar-container" id="thirstBar">
+                        <div class="stat-bar" id="thirst"></div>
+                    </div>
+                </div>
+                <div class="player-stats">
+                    <div>精力</div>
+                    <div class="stat-bar-container" id="fatigueBar">
+                        <div class="stat-bar" id="fatigue"></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="action">
-            <div id="tabs">
-                <button onclick="changeTab('home')">我的房间</button>
-                <button onclick="changeTab('hallway')">走廊</button>
-            </div>
-            <div id="tabContent">
-                <div id="homeTab" class="tab">
-                    <button onclick="performAction('eat')">吃饭</button>
-                    <button onclick="performAction('rest')">休息</button>
-                    <button onclick="performAction('craft')">制作装备</button>
-                </div>
-                <div id="hallwayTab" class="tab" style="display:none;">
-                    <button onclick="performAction('eat')">开901的门</button>
-                    <button onclick="performAction('rest')">开902的门</button>
-                    <button onclick="performAction('craft')">开903的门</button>
-                </div>
+        <div id="equipment-container">
+            <div class="title">装备</div>
+            <div id="equipment">
+                <div id="weapon"></div>
+                <div id="armor"></div>
+                <div id="accessory"></div>
             </div>
         </div>
-        <div class="div-container">
-            <div id="stats">
-                <div class="title">
-                    <div id="health"></div>
-                    <div id="sanity"></div>
-                    <div id="hunger"></div>
-                    <div id="thirst"></div>
-                    <div id="fatigue"></div>
-                </div>
-                <div class="title">
-                    <div id="attack"></div>
-                    <div id="defense"></div>
-                    <div id="weapon"></div>
-                    <div id="armor"></div>
-                    <div id="accessory"></div>
-                    <div id="playerStorage"></div>
-                </div>
-            </div>
-            <div id="inventory">
-                <div class="title">
-                    库存
-                </div>
-                <div id="inventoryContent"></div>
-            </div>
-        </div>
+    </div>
+    <div class="alertWindow">
     </div>
 </body>
 </html>

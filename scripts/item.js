@@ -6,6 +6,7 @@ const items = [
         type: 'consumable',
         probability: 0.5,
         description: '提供营养，恢复饥饿值。',
+        lootable: true,
         properties: {
             hunger: 20,
         },
@@ -16,6 +17,7 @@ const items = [
         type: 'consumable',
         probability: 0.3,
         description: '解渴的水，恢复口渴值。',
+        lootable: true,
         properties: {
             thirst: 30,
         },
@@ -26,6 +28,7 @@ const items = [
         type: 'weapon',
         probability: 0.3,
         description: '一把厨房刀。',
+        lootable: false,
         properties: {
             attack: 10,
         },
@@ -36,6 +39,7 @@ const items = [
         type: 'armor',
         probability: 0.2,
         description: '锅，能炒菜。',
+        lootable: false,
         properties: {
             defense: 5,
         },
@@ -46,6 +50,7 @@ const items = [
         type: 'weapon',
         probability: 0.2,
         description: '棒球棍',
+        lootable: false,
         properties: {
             attack: 5,
         },
@@ -56,6 +61,7 @@ const items = [
         type: 'accessory',
         probability: 0.2,
         description: '能装不少东西',
+        lootable: false,
         properties: {
             playerStorage: 10,
         },
@@ -66,6 +72,7 @@ const items = [
         type: 'consumable',
         probability: 0.2,
         description: '啊？',
+        lootable: false,
         properties: {
             health: -200,
         },

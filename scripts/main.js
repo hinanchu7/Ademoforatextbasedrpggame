@@ -9,7 +9,6 @@ const gameTime = {
 const playerStats = {
     health: 100,
     sanity: 100,
-    sanity: 100,
     hunger: 100,
     thirst: 100,
     fatigue: 100,
@@ -20,6 +19,8 @@ const playerStats = {
     weapon: null,
     armor: null,
 }
+
+const updateAttributes = ['health', 'sanity', 'hunger', 'thirst', 'fatigue'];
 
 // 更新游戏时间
 
@@ -38,30 +39,38 @@ function updateGameTime() {
     
 }
 
+// 更新玩家状态栏
+
+function updateStatBar() {
+    // 迭代要更新的属性数组
+    updateAttributes.forEach(function(statName) {
+        // 获取对应的属性条和容器元素
+        var statBarContainer = document.getElementById(statName + "Bar");
+        var statBar = document.getElementById(statName);
+
+        // 获取对应属性的当前值和最大值
+        var currentValue = playerStats[statName];
+        var maxValue = 100;  // 假设所有属性的最大值都是100，可以根据实际情况调整
+
+        // 计算新的宽度
+        var newWidth = (currentValue / maxValue) * 100;
+
+        // 应用新的宽度并触发动画
+        statBar.style.width = newWidth + "%";
+    });
+}
+
 // 更新玩家信息
 
 function updatePlayerStats() {
     // 获取属性显示元素
-    const healthElement = document.getElementById('health');
-    const sanityElement = document.getElementById('sanity');
-    const hungerElement = document.getElementById('hunger');
-    const thirstElement = document.getElementById('thirst');
-    const fatigueElement = document.getElementById('fatigue');
-    const attackElement = document.getElementById('attack');
-    const defenseElement = document.getElementById('defense');
     const weaponElement = document.getElementById('weapon');
     const armorElement = document.getElementById('armor');
     const accessoryElement = document.getElementById('accessory');
 
-    // 更新属性显示
-    healthElement.textContent = `健康：${playerStats.health}`;
-    sanityElement.textContent = `理智：${playerStats.sanity}`;
-    hungerElement.textContent = `饥饿：${playerStats.hunger}`;
-    thirstElement.textContent = `口渴：${playerStats.thirst}`;
-    fatigueElement.textContent = `疲劳：${playerStats.fatigue}`;
-    attackElement.textContent = `攻击：${playerStats.attack}`;
-    defenseElement.textContent = `防御：${playerStats.defense}`;
-    
+    // 更新血量条
+    updateStatBar();
+
     // 如果有武器、防具和道具，显示它们的名称
     weaponElement.textContent = `武器：${playerStats.weapon ? playerStats.weapon.name : '无'}`;
     armorElement.textContent = `防具：${playerStats.armor ? playerStats.armor.name : '无'}`;
@@ -130,4 +139,23 @@ function resetGameData() {
     updateGameTime();
     updatePlayerStats();
     updateInventory();
+}
+
+
+// test
+
+function test(stats) {
+    // 随机选择一个属性名
+    var statNames = Object.keys(stats);
+    var randomStatIndex = Math.floor(Math.random() * statNames.length);
+    var randomStatName = statNames[randomStatIndex];
+
+    // 将选中属性的值减少10
+    if (typeof stats[randomStatName] === 'number') {
+        stats[randomStatName] -= 10;
+        console.log("Test: Decreased", randomStatName, "by 10. New value:", stats[randomStatName]);
+    } else {
+        console.log("Test: Skipped", randomStatName, "because it is not a number.");
+    }
+    updatePlayerStats();
 }

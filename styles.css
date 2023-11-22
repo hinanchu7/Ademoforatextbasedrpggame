@@ -1,53 +1,171 @@
-@font-face {
-    font-family: 'IPix'; /* 可以自定义字体名称 */
-    src: url('fonts/IPix.ttf') format('truetype'); /* 路径和格式根据你的字体文件类型进行调整 */
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
-    font-family: 'IPix', sans-serif; /* 使用你定义的字体 */
-    border: 1px black;
+    font-family: 'SimSun', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e7e7e7;
+    min-width: 400px;
+    font-size: 13px;
 }
 
-/* #gameContent {
-    display: none;
-}
-*/
-.container {
-    display: flex;
-    height: 500px;
+#game-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 1px;
+    color: black;
 }
 
 #log {
-    flex: 1 0 20%;
-    background-color: rgb(227, 245, 252);
-    margin-right: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-#action {
-    flex: 1 0 40%;
-    background-color: rgb(227, 245, 252);
-    margin-right: 10px;
-}
-
-.div-container {
+#actions {
     display: flex;
     flex-direction: column;
-    flex: 1 0 30%; /* 调整第三个和第四个 div 容器的宽度比例 */
-    height: 500px;
 }
 
-#stats {
-    flex: 1 1 auto; /* 让 div3 占满剩余的高度 */
-    background-color: rgb(227, 245, 252);
-    margin-bottom: 10px; /* 可选：设置底部间距 */
+#actions-container1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#actions-container2 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+
+.action-button:hover {
+    background-color: #45a049;
 }
 
 #inventory {
-    flex: 1 1 auto; /* 让 div4 占满剩余的高度 */
-    background-color: rgb(227, 245, 252);
-    height: 60%;
+    margin-bottom: 20px;
 }
 
+.inventory-item {
+    margin-bottom: 5px;
+}
 
+#player-stats-container, #equipment-container, #inventory{
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#player-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-bar-container {
+    width: 310px;
+    height: 16px;
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border-radius: 2px;
+}
+
+.stat-bar {
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+    background-color: rgb(185, 185, 185); /* 血条 */
+}
+
+.player-stats {
+    display: flex;
+}
+
+.title {
+    z-index: 1000;
+    position: relative;
+    bottom: 18px;
+    background-color: #fff;
+    width: 26px;
+    overflow: hidden;
+}
+
+.title2 {
+    z-index: 1000;
+    position: relative;
+    bottom: 18px;
+    background-color: #fff;
+    width: 78px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.button {
+    background-color: #fff; /* 白色背景 */
+    border: 1px solid #000; /* 黑色边框 1px */
+    color: #000; /* 黑色文字 */
+    padding: 0; /* 设置按钮内边距 */
+    text-decoration: none; /* 去除默认文本装饰 */
+    display: inline-block; /* 让按钮在同一行显示 */
+    cursor: pointer; /* 显示光标为手型 */
+    font-size: 13px;
+    font-family: 'SimSun', sans-serif;
+    width: 80px;
+    height: 25px;
+}
+
+.button:active {
+    border: 1px solid #888888;
+}
+
+.button:hover {
+    text-decoration: underline;
+}
+
+#equipment {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.alertWindow {
+    border: 1px solid black;
+    padding: 10px;
+    width: 200px;
+    height: 150px;
+    z-index: 99999;
+    position: relative;
+    bottom: 400px;
+    margin: auto;
+    margin-bottom: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#start-game-container {
+    border: 1px solid black;
+    padding: 10px;
+    width: 360px;
+    height: 200px;
+    z-index: 999999;
+    position: relative;
+    top: 200px;
+    margin: auto;
+    margin-bottom: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
