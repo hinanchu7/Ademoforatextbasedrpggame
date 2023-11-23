@@ -11,7 +11,7 @@ const playerStats = {
     sanity: 100,
     hunger: 100,
     thirst: 100,
-    fatigue: 100,
+    fatigue: 10,
     attack: 10,
     defense: 5,
     inventory: [],
@@ -142,6 +142,20 @@ function resetGameData() {
 }
 
 
+function printToLog(message) {
+    const gameLogElement = document.getElementById('gameLog');
+    const maxLogCount = 5; // 设置最大的 <p> 元素数量
+
+    gameLogElement.innerHTML += `<p>${message}</p>`;
+
+    // 检查当前 <p> 元素数量
+    const logElements = gameLogElement.getElementsByTagName('p');
+    if (logElements.length > maxLogCount) {
+        // 删除最旧的一个 <p> 元素
+        gameLogElement.removeChild(logElements[0]);
+    }
+}
+
 // test
 
 function test(stats) {
@@ -158,4 +172,47 @@ function test(stats) {
         console.log("Test: Skipped", randomStatName, "because it is not a number.");
     }
     updatePlayerStats();
+}
+
+// 动作：睡觉
+
+function getRandomValue(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+let lastSleepTime = 0; // 用于追踪上次点击的时间
+
+function playerActionSleep() {
+    const currentTime = new Date().getTime(); // 获取当前时间的毫秒数
+    const hoursSinceLastSleep = (currentTime - lastSleepTime) / (1000 * 60 * 60); // 计算距离上次点击经过的小时数
+
+    // 检查是否已经过了24小时
+    if (hoursSinceLastSleep >= 24) {
+        // 假设睡觉会增加游戏时间8小时
+        addTime(0, 8, 0);
+
+        // 恢复玩家疲劳值，随机恢复70-80之间的数
+        playerStats.fatigue = Math.min(playerStats.fatigue + getRandomValue(40, 80), 100);
+
+        // 减少饥饿值，随机减少70-80之间的数
+        playerStats.hunger = Math.max(playerStats.hunger - getRandomValue(40, 80), 0);
+
+        // 更新游戏时间
+        updateGameTime();
+
+        // 输出文本到游戏日志
+        printToLog('你昨晚上睡得很好，精神恢复了。');
+
+        // 更新玩家状态
+        updatePlayerStats();
+
+        // 记录本次点击的时间
+        lastSleepTime = currentTime;
+
+        // 进行其他游戏逻辑处理
+        // ...
+    } else {
+        // 如果未过24小时，可以在这里输出提示或者什么操作
+        printToLog('你完全不困，睡不着的捏。');
+    }
 }

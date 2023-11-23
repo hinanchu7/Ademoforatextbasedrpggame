@@ -8,7 +8,7 @@ body {
 }
 
 #game-container {
-    max-width: 400px;
+    width: 400px;
     margin: 20px auto;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -21,6 +21,7 @@ body {
     border: 1px solid black;
     padding: 10px;
     margin-bottom: 10px;
+    min-height: 200px;
 }
 
 #actions {
@@ -70,6 +71,12 @@ body {
     padding: 10px;
 }
 
+#gameTime-container {
+    border: 1px solid black;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+}
+
 #player-stats {
     display: flex;
     flex-direction: column;
@@ -105,15 +112,6 @@ body {
     overflow: hidden;
 }
 
-.title2 {
-    z-index: 1000;
-    position: relative;
-    bottom: 18px;
-    background-color: #fff;
-    width: 78px;
-    overflow: hidden;
-    margin-bottom: 5px;
-}
 
 .button {
     background-color: #fff; /* 白色背景 */
@@ -149,11 +147,12 @@ body {
     height: 150px;
     z-index: 99999;
     position: relative;
-    bottom: 400px;
+    bottom: 800px;
     margin: auto;
     margin-bottom: 0;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
 }
 
 #start-game-container {
@@ -168,4 +167,17 @@ body {
     margin-bottom: 0;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#gameLog p {
+    margin: 0; /* 为了去掉默认的外边距，确保 <p> 元素之间没有间隙 */
+    padding: 5px; /* 可以根据需要设置内边距 */
+}
+
+#gameLog p:last-child {
+    color: black; /* 设置最后一个 <p> 元素的文本颜色为黑色 */
+}
+
+#gameLog p:not(:last-child) {
+    color: grey; /* 设置除了最后一个 <p> 元素以外的所有 <p> 元素的文本颜色为灰色 */
 }

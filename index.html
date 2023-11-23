@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试版</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/inventory.js"></script>
     <script type="text/javascript" src="scripts/item.js"></script>
+    <script type="text/javascript" src="scripts/inventory.js"></script>
     <script type="text/javascript" src="scripts/combat.js"></script>
+    <script type="text/javascript" src="scripts/map.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body onload="updatePlayerStats()">
     <div id="game-container">
+        <div id="gameTime-container">
+            <div id="gameTime">第1天，08:30</div>
+        </div>
         <div id="log">
-            <div id="gameTime" class="title2">第1天，08:30</div>
-            <div>游戏日志和文字描述将显示在这里</div>
+            <div id="gameLog">
+                <p id="logText"></p>
+            </div>>
         </div>
         <div id="actions">
             <div id="actions-container1">
                 <button class="button" onclick="performAction('eat')">吃饭</button>
-                <button class="button" onclick="performAction('rest')">休息</button>
-                <button class="button" onclick="performAction('explore')">探险</button>
+                <button class="button" onclick="playerActionSleep()">休息</button>
+                <button class="button" onclick="performAction('explore')">手冲</button>
                 <button class="button" onclick="performAction('explore')">探险</button>
             </div>
             <div id="actions-container2">
@@ -83,3 +88,5 @@
     </div>
 </body>
 </html>
+
+
