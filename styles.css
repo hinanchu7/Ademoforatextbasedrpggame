@@ -1,183 +1,72 @@
-body {
-    font-family: 'SimSun', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #e7e7e7;
-    min-width: 400px;
-    font-size: 13px;
+#start-game-container {
+    width: 300px;
+    margin-right: 20px;
 }
 
 #game-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+#game-log-container {
+    align-self: flex-start;
+}
+
+#player-stats-container {
+    margin-right: 20px;
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#player-inventory-container {
+    margin-right: 20px;
+    width: 200px;
+}
+
+#main-game-container {
     width: 400px;
-    margin: 20px auto;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 1px;
-    color: black;
+    margin-right: 20px;
+}
+
+#player-weapon, #player-armor, #player-accessory, #player-health, #player-sanity, #player-fatigue{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.player-stats-info {
+    padding-top: 1.8px;
 }
 
 #log {
-    border: 1px solid black;
-    padding: 10px;
-    margin-bottom: 10px;
-    min-height: 200px;
+    background-color: white;
+    border: 1px solid grey;
+    height: 400px;
+    position: relative;
 }
 
-#actions {
-    display: flex;
-    flex-direction: column;
+#button1 {
+    margin-top: 10px;
 }
 
-#actions-container1 {
+#button1, #button2 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
-#actions-container2 {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+#input {
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
 }
 
-.action-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #4caf50;
-    color: #fff;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-
-.action-button:hover {
-    background-color: #45a049;
-}
-
-#inventory {
-    margin-bottom: 20px;
-}
-
-.inventory-item {
-    margin-bottom: 5px;
-}
-
-#player-stats-container, #equipment-container, #inventory{
-    margin-bottom: 20px;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-#gameTime-container {
-    border: 1px solid black;
-    padding: 4px 10px;
-    margin-bottom: 10px;
-}
-
-#player-stats {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-bar-container {
-    width: 310px;
-    height: 16px;
-    background-color: white;
-    overflow: hidden;
-    border: 1px solid black;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    border-radius: 2px;
-}
-
-.stat-bar {
-    height: 100%;
-    transition: width 0.5s ease-in-out;
-    background-color: rgb(185, 185, 185); /* 血条 */
-}
-
-.player-stats {
-    display: flex;
-}
-
-.title {
-    z-index: 1000;
-    position: relative;
-    bottom: 18px;
-    background-color: #fff;
-    width: 26px;
-    overflow: hidden;
-}
-
-
-.button {
-    background-color: #fff; /* 白色背景 */
-    border: 1px solid #000; /* 黑色边框 1px */
-    color: #000; /* 黑色文字 */
-    padding: 0; /* 设置按钮内边距 */
-    text-decoration: none; /* 去除默认文本装饰 */
-    display: inline-block; /* 让按钮在同一行显示 */
-    cursor: pointer; /* 显示光标为手型 */
-    font-size: 13px;
-    font-family: 'SimSun', sans-serif;
-    width: 80px;
-    height: 25px;
-}
-
-.button:active {
-    border: 1px solid #888888;
-}
-
-.button:hover {
-    text-decoration: underline;
-}
-
-#equipment {
-    display: flex;
-    justify-content: space-between; 
-}
-
-.alertWindow {
-    border: 1px solid black;
-    padding: 10px;
-    width: 200px;
-    height: 150px;
-    z-index: 99999;
-    position: relative;
-    bottom: 800px;
-    margin: auto;
-    margin-bottom: 0;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
-}
-
-#start-game-container {
-    border: 1px solid black;
-    padding: 10px;
-    width: 360px;
-    height: 200px;
-    z-index: 999999;
-    position: relative;
-    top: 200px;
-    margin: auto;
-    margin-bottom: 0;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#gameLog p {
-    margin: 0; /* 为了去掉默认的外边距，确保 <p> 元素之间没有间隙 */
-    padding: 5px; /* 可以根据需要设置内边距 */
-}
-
-#gameLog p:last-child {
-    color: black; /* 设置最后一个 <p> 元素的文本颜色为黑色 */
-}
-
-#gameLog p:not(:last-child) {
-    color: grey; /* 设置除了最后一个 <p> 元素以外的所有 <p> 元素的文本颜色为灰色 */
+#input-box {
+    border-top: 1px solid black;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    width:360px;
+    border-radius: 0px;
 }
