@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
-<body>
+<body onload = "updateDisplay()">
     <div id="game-container">
         <div id="start-game-container" class="window active">
             <div class="title-bar">
@@ -43,9 +43,6 @@
             <div class="window-body has-space">
                 <p>There's so much room for activities!</p>
             </div>
-            <div class="status-bar">
-                <p class="status-bar-field" id="gameTime">Press F1 for help</p>
-            </div>
         </div>
         <div id="player-stats-and-inventory-container">
             <div id="player-stats-container" class="window active">
@@ -55,58 +52,32 @@
                 <div class="window-body has-space">
                     <div id="player-health">
                         <div class="player-stats-info">健康</div>
-                        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-                            <div style="width: 140px"></div>
+                        <div class="player-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                            <div id="player-health-bar" style="width: 100%"></div>
                         </div>
                     </div>
                     <div id="player-sanity">
                         <div class="player-stats-info">理智</div>
-                        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-                            <div style="width: 140px"></div>
+                        <div class="player-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                            <div id="player-sanity-bar" style="width: 100%"></div>
                         </div>
                     </div>
                     <div id="player-fatigue">
                         <div class="player-stats-info">疲劳</div>
-                        <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-                            <div style="width: 140px"></div>
+                        <div class="player-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                            <div id="player-fatigue-bar" style="width: 100%"></div>
                         </div>
                     </div>
-                    <div id="equipment-container">
-                        <div id="player-weapon">
-                            <div class="player-stats-info">武器</div>
-                            <div class="player-stats-selection">
-                                <select>
-                                    <option selected>无</option>
-                                    <option>4 - Great!</option>
-                                    <option>3 - Pretty good</option>
-                                    <option>2 - Not so great</option>
-                                    <option>1 - Unfortunate</option>
-                                </select>
-                            </div>
+                    <div id="player-hunger">
+                        <div class="player-stats-info">饥饿</div>
+                        <div class="player-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                            <div id="player-hunger-bar" style="width: 100%"></div>
                         </div>
-                        <div id="player-armor">
-                            <div class="player-stats-info">防具</div>
-                            <div class="player-stats-selection">
-                                <select>
-                                    <option selected>无</option>
-                                    <option>4 - Great!</option>
-                                    <option>3 - Pretty good</option>
-                                    <option>2 - Not so great</option>
-                                    <option>1 - Unfortunate</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div id="player-accessory">
-                            <div class="player-stats-info">特殊道具</div>
-                            <div class="player-stats-selection">
-                                <select>
-                                    <option selected>无</option>
-                                    <option>4 - Great!</option>
-                                    <option>3 - Pretty good</option>
-                                    <option>2 - Not so great</option>
-                                    <option>1 - Unfortunate</option>
-                                </select>
-                            </div>
+                    </div>
+                    <div id="player-thirst">
+                        <div class="player-stats-info">口渴</div>
+                        <div class="player-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                            <div id="player-thirst-bar" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +99,7 @@
         </div>
         <div id="main-game-container" class="window active">
             <div class="title-bar">
-                <div class="title-bar-text">你的房间：404室</div>
+                <div id="player-location" class="title-bar-text"></div>
                 <div class="title-bar-controls">
                     <button aria-label="Close"></button>
                 </div>
@@ -167,7 +138,8 @@
                 
             </div>
             <div class="status-bar">
-                <p class="status-bar-field" id="gameTime">13</p>
+                <p class="status-bar-field" id="gameDate"></p>
+                <p class="status-bar-field" id="gameTime"></p>
             </div>
         </div>
     </div>

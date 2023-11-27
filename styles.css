@@ -25,11 +25,11 @@
 }
 
 #main-game-container {
-    width: 400px;
+    min-width: 400px;
     margin-right: 20px;
 }
 
-#player-weapon, #player-armor, #player-accessory, #player-health, #player-sanity, #player-fatigue{
+#player-hunger, #player-thirst, #player-health, #player-sanity, #player-fatigue{
     display: flex;
     justify-content: space-between;
     margin-bottom: 3px;
@@ -69,4 +69,28 @@
     border-bottom: none;
     width:360px;
     border-radius: 0px;
+}
+
+.log-entry {
+    font-size: 14px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.log-entry.new {
+    color: black;
+}
+
+.log-entry.old {
+    color: grey;
+}
+
+.player-bar {
+    width: 140px;
+}
+
+
+#player-health-bar {
+    transition: width 0.5s ease; /* 过渡 width 属性，持续时间为 0.5 秒，缓动函数为 ease */
 }
